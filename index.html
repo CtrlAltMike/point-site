@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael Hendrick — Technical Program Manager</title>
+<meta name="description" content="Michael Hendrick — Technical Program Manager & SAFe Scrum Master. Four ways in: résumé, curriculum vitae, source repositories, and writing.">
+<meta name="theme-color" content="#0a1622">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Michael Hendrick — Technical Program Manager">
+<meta property="og:description" content="Four ways in: résumé, curriculum vitae, source repositories, and writing.">
+<meta property="og:url" content="https://point.hendrick.net">
+<meta name="twitter:card" content="summary_large_image">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,650&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<script src="https://cdn.jsdelivr.net/npm/webgl-fluid@0.3"></script>
+<style>
+html,body{margin:0;height:100%;width:100%;background:#0a1622;overflow:hidden;font-family:Inter,system-ui,sans-serif}
+@keyframes pingRing{from{transform:translate(-50%,-50%) scale(.4);opacity:.85}to{transform:translate(-50%,-50%) scale(2.9);opacity:0}}
+</style>
+</helmet>
+<div ref="{{ fluidWrap }}" style="position:fixed;inset:0;width:100vw;height:100vh;background:#0a1622;overflow:hidden">
+  <canvas ref="{{ fluidCanvas }}" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(130% 100% at 50% 46%, transparent 55%, rgba(6,12,20,.6) 100%)"></div>
+  <div style="position:absolute;left:26px;top:22px;pointer-events:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#e8bf49">POINT.HENDRICK.NET</div>
+  <label style="position:absolute;right:24px;top:19px;display:flex;align-items:center;gap:8px;pointer-events:auto;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#e8bf49;user-select:none">INK<input type="checkbox" checked="{{ inkOn }}" onChange="{{ toggleInk }}" style="width:14px;height:14px;accent-color:#e8bf49;cursor:pointer;margin:0" /></label>
+
+  <div ref="{{ stage }}" style="position:absolute;left:50%;top:50%;width:420px;height:420px;transform:translate(-50%,-50%);transform-origin:center center;pointer-events:none">
+    <div ref="{{ tickB }}" style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,.2)">
+      <div style="position:absolute;inset:5px;border-radius:50%;background:repeating-conic-gradient(from -0.4deg, rgba(255,255,255,.55) 0deg .8deg, transparent .8deg 6deg);-webkit-mask:radial-gradient(closest-side, transparent 89%, #000 90%);mask:radial-gradient(closest-side, transparent 89%, #000 90%)"></div>
+      <div style="position:absolute;inset:5px;border-radius:50%;background:repeating-conic-gradient(from -0.9deg, rgba(232,191,73,.85) 0deg 1.6deg, transparent 1.6deg 90deg);-webkit-mask:radial-gradient(closest-side, transparent 84%, #000 85%);mask:radial-gradient(closest-side, transparent 84%, #000 85%)"></div>
+    </div>
+    <div style="position:absolute;inset:64px;border-radius:50%;border:1px solid rgba(255,255,255,.06)"></div>
+    <div onMouseEnter="{{ enterCore }}" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:176px;height:176px;border-radius:50%;background:rgba(10,22,34,.5);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);display:grid;place-content:center;justify-items:center;text-align:center;padding:20px;box-shadow:0 18px 50px rgba(0,0,0,.4);pointer-events:auto;cursor:default;transition:border-color .35s" style-hover="border-color:rgba(232,191,73,.55)">
+      <div style="font-family:Fraunces,Georgia,serif;font-weight:560;font-size:27px;line-height:1.08;color:#f4f6f8">Michael<br>Hendrick</div>
+    </div>
+    <a href="https://www.linkedin.com/in/michaelhendrick/" onMouseEnter="{{ enterN }}" style="position:absolute;left:50%;top:-70px;transform:translateX(-50%);transform-origin:50% 100%;transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:column;align-items:center;gap:9px;text-decoration:none;pointer-events:auto" style-hover="transform:translateX(-50%) scale(1.16)">
+      <span style="font-size:18px;font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75)">Résumé</span>
+      <span style="position:relative;width:13px;height:13px;border-radius:50%;background:#4aa3ff;box-shadow:0 0 18px 5px rgba(74,163,255,.7)"><span ref="{{ pingN }}" style="position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;border:2px solid #4aa3ff;transform:translate(-50%,-50%) scale(.4);opacity:0;pointer-events:none"></span></span>
+    </a>
+    <a href="https://cv.hendrick.net" onMouseEnter="{{ enterE }}" style="position:absolute;left:calc(100% + 16px);top:50%;transform:translateY(-50%);transform-origin:left center;transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:11px;text-decoration:none;pointer-events:auto" style-hover="transform:translateY(-50%) scale(1.16)">
+      <span style="position:relative;width:13px;height:13px;border-radius:50%;background:#e8bf49;box-shadow:0 0 18px 5px rgba(232,191,73,.7)"><span ref="{{ pingE }}" style="position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;border:2px solid #e8bf49;transform:translate(-50%,-50%) scale(.4);opacity:0;pointer-events:none"></span></span>
+      <span style="font-size:18px;font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75);white-space:nowrap;line-height:1.15">Curriculum<br>Vitae</span>
+    </a>
+    <a href="https://github.com/CtrlAltMike/point-site" onMouseEnter="{{ enterS }}" style="position:absolute;left:50%;top:calc(100% + 18px);transform:translateX(-50%);transform-origin:50% 0;transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:column-reverse;align-items:center;gap:9px;text-decoration:none;pointer-events:auto" style-hover="transform:translateX(-50%) scale(1.16)">
+      <span style="font-size:18px;font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75);white-space:nowrap">Source Repo</span>
+      <span style="position:relative;width:13px;height:13px;border-radius:50%;background:#bd94ff;box-shadow:0 0 18px 5px rgba(189,148,255,.7)"><span ref="{{ pingS }}" style="position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;border:2px solid #bd94ff;transform:translate(-50%,-50%) scale(.4);opacity:0;pointer-events:none"></span></span>
+    </a>
+    <a href="https://mike.hendrick.net" onMouseEnter="{{ enterW }}" style="position:absolute;right:calc(100% + 16px);top:50%;transform:translateY(-50%);transform-origin:right center;transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:row-reverse;align-items:center;gap:11px;text-decoration:none;pointer-events:auto" style-hover="transform:translateY(-50%) scale(1.16)">
+      <span style="position:relative;width:13px;height:13px;border-radius:50%;background:#35d6a4;box-shadow:0 0 18px 5px rgba(53,214,164,.7)"><span ref="{{ pingW }}" style="position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;border:2px solid #35d6a4;transform:translate(-50%,-50%) scale(.4);opacity:0;pointer-events:none"></span></span>
+      <span style="font-size:18px;font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75);white-space:nowrap">Writing</span>
+    </a>
+  </div>
+
+  <a href="https://github.com/PavelDoGreat/WebGL-Fluid-Simulation" target="_blank" rel="noopener" style="position:absolute;right:18px;bottom:16px;pointer-events:auto;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#4a5c6d;text-decoration:none" style-hover="color:#e8bf49">Credit — Pavel Dobryakov ↗</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { inkOn: true };
+  fluidCanvas = React.createRef();
+  fluidWrap = React.createRef();
+  stage = React.createRef();
+  tickB = React.createRef();
+  pingN = React.createRef(); pingE = React.createRef(); pingS = React.createRef(); pingW = React.createRef();
+  scale = 1;
+
+  componentDidMount() {
+    this.fit();
+    this._onResize = () => this.fit();
+    window.addEventListener('resize', this._onResize);
+    this.t0 = performance.now();
+    const loop = (now) => {
+      this.raf = requestAnimationFrame(loop);
+      const t = (now - this.t0) / 1000;
+      if (this.tickB.current) this.tickB.current.style.transform = 'rotate(' + (t * 3 % 360) + 'deg)';
+    };
+    this.raf = requestAnimationFrame(loop);
+    this.initFluid();
+  }
+
+  fit() {
+    const el = this.stage.current; if (!el) return;
+    const vw = window.innerWidth, vh = window.innerHeight;
+    let s = Math.min(vw / 760, vh / 700) * 0.95;
+    s = Math.max(0.42, Math.min(1.7, s));
+    this.scale = s;
+    el.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+  }
+
+  initFluid() {
+    if (this.fluidBooting) return;
+    this.fluidBooting = true;
+    const canvas = this.fluidCanvas.current, wrap = this.fluidWrap.current;
+    if (!canvas || !wrap) return;
+    let tries = 0;
+    const boot = () => {
+      if (typeof window.WebGLFluid === 'function') {
+        try {
+          const self = this, origAdd = EventTarget.prototype.addEventListener;
+          // Eruptions are gated to TEXT hover only. Bare movement over the field is swallowed
+          // here; ink is painted exclusively by our own stir() events (self._emitting), which
+          // the text-hover handlers fire — so the field stays calm and only ignites on text.
+          const capWrap = (handler) => function (e) {
+            if (self._emitting) return handler.call(this, e);
+            /* swallow — bare-field movement paints nothing */
+          };
+          EventTarget.prototype.addEventListener = function (type, handler, opts) {
+            if (type === 'mousemove' && typeof handler === 'function' && (this === canvas || this === window || this === document)) {
+              return origAdd.call(this, type, capWrap(handler), opts);
+            }
+            return origAdd.call(this, type, handler, opts);
+          };
+          window.WebGLFluid(canvas, {
+            IMMEDIATE: false, TRIGGER: 'hover',
+            SIM_RESOLUTION: 128, DYE_RESOLUTION: 1024,
+            DENSITY_DISSIPATION: 0.95, VELOCITY_DISSIPATION: 0.5,
+            PRESSURE: 0.8, PRESSURE_ITERATIONS: 20, CURL: 26,
+            SPLAT_RADIUS: 0.16, SPLAT_FORCE: 6000,
+            SHADING: true, COLORFUL: true, COLOR_UPDATE_SPEED: 8,
+            BACK_COLOR: { r: 10, g: 22, b: 34 }, TRANSPARENT: false,
+            BLOOM: true, BLOOM_INTENSITY: 0.9, BLOOM_THRESHOLD: 0.4,
+            SUNRAYS: true, SUNRAYS_WEIGHT: 0.8
+          });
+          setTimeout(() => { EventTarget.prototype.addEventListener = origAdd; }, 5000);
+          this.fluidOn = true;
+        } catch (e) { console.error('[fluid] init failed', e); }
+      } else if (tries++ < 120) {
+        setTimeout(boot, 100);
+      } else { console.error('[fluid] WebGLFluid never loaded'); }
+    };
+    boot();
+  }
+
+  stir(cx, cy) {
+    const canvas = this.fluidCanvas.current; if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const ev = new MouseEvent('mousemove', { clientX: rect.left + cx, clientY: rect.top + cy, bubbles: true });
+    try { Object.defineProperty(ev, 'offsetX', { value: cx }); Object.defineProperty(ev, 'offsetY', { value: cy }); } catch (e) {}
+    this._emitting = true;
+    canvas.dispatchEvent(ev);
+    this._emitting = false;
+  }
+
+  burst(deg) {
+    if (!this.state.inkOn) return;
+    const canvas = this.fluidCanvas.current; if (!canvas) return;
+    const w = canvas.clientWidth, h = canvas.clientHeight, cx = w / 2, cy = h / 2;
+    const S = this.scale || 1, reach = 260 * S, rad = deg * Math.PI / 180;
+    const ux = Math.sin(rad), uy = -Math.cos(rad), nx = Math.cos(rad), ny = Math.sin(rad);
+    const N = 44, coreFrames = 7;
+    let i = 0;
+    const step = () => {
+      if (i > N) return;
+      if (i < coreFrames) {
+        this.stir(cx + (Math.random() - .5) * 24 * S, cy + (Math.random() - .5) * 24 * S);
+      } else {
+        const f = (i - coreFrames) / (N - coreFrames);
+        const r = f * reach;
+        const width = Math.sin(f * Math.PI) * 44 * S;
+        const weave = Math.sin(f * 9) * width + (Math.random() - .5) * 16 * S;
+        this.stir(cx + ux * r + nx * weave, cy + uy * r + ny * weave);
+      }
+      i++; requestAnimationFrame(step);
+    };
+    step();
+  }
+
+  burstCore() {
+    if (!this.state.inkOn) return;
+    const canvas = this.fluidCanvas.current; if (!canvas) return;
+    const w = canvas.clientWidth, h = canvas.clientHeight, cx = w / 2, cy = h / 2;
+    const S = this.scale || 1, reach = 200 * S;
+    let i = 0; const N = 58;
+    const step = () => {
+      if (i > N) return;
+      const f = i / N;
+      const ang = f * Math.PI * 8;
+      const r = Math.pow(f, 0.8) * reach;
+      this.stir(cx + Math.cos(ang) * r, cy + Math.sin(ang) * r);
+      i++; requestAnimationFrame(step);
+    };
+    step();
+  }
+
+  enter(deg, pingRef) {
+    this.burst(deg);
+    const p = pingRef && pingRef.current;
+    if (p) { p.style.animation = 'none'; void p.offsetWidth; p.style.animation = 'pingRing .75s cubic-bezier(.2,.7,.3,1)'; }
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf);
+    window.removeEventListener('resize', this._onResize);
+  }
+
+  renderVals() {
+    return {
+      fluidCanvas: this.fluidCanvas, fluidWrap: this.fluidWrap, stage: this.stage, tickB: this.tickB,
+      pingN: this.pingN, pingE: this.pingE, pingS: this.pingS, pingW: this.pingW,
+      inkOn: this.state.inkOn,
+      toggleInk: (e) => this.setState({ inkOn: e.target.checked }),
+      enterN: () => this.enter(0, this.pingN), enterE: () => this.enter(90, this.pingE),
+      enterS: () => this.enter(180, this.pingS), enterW: () => this.enter(270, this.pingW),
+      enterCore: () => this.burstCore()
+    };
+  }
+}
+</script>
+</body>
+</html>
