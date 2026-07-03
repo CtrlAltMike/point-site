@@ -1,22 +1,25 @@
 # point.hendrick.net
 
-The entry point for Michael Hendrick's professional signal — a single interactive
-compass that routes visitors to four destinations:
+Tiny personal wayfinding page for Michael Hendrick. It is basically an
+interactive compass with four exits:
 
-- **Résumé** → LinkedIn
-- **Curriculum Vitae** → cv.hendrick.net
-- **Source Repo** → GitHub
-- **Writing** → mike.hendrick.net
+- **Résumé** -> LinkedIn
+- **Curriculum Vitae** -> cv.hendrick.net
+- **Source Repo** -> this repo
+- **Writing** -> mike.hendrick.net
 
-Built as a real-time GPU fluid field (Pavel Dobryakov's WebGL-Fluid-Simulation).
-Hover the name or a bearing to ignite ink; the "Ink" toggle (top-right) disables it.
+The background is a real-time GPU fluid field using Pavel Dobryakov's
+WebGL-Fluid-Simulation. Hover the name or one of the bearings and it kicks a
+little ink into the field. The `INK` toggle turns that off when you want the page
+to sit still.
 
 ## Hosting
 
-Static site served by GitHub Pages at the custom domain `point.hendrick.net`.
+This is a plain static site on GitHub Pages, served at `point.hendrick.net`.
 
-- `index.html` — the page (self-contained; loads React, the fluid solver, and fonts from CDN)
-- `support.js` — the component runtime
-- `CNAME` — custom-domain binding for GitHub Pages
+- `index.html` - the page itself
+- `support.js` - the small runtime it uses
+- `CNAME` - tells GitHub Pages about `point.hendrick.net`
 
-No build step. Edit `index.html` and push to `main`.
+No build step, no package install, no ceremony. Edit `index.html`, push to
+`main`, and GitHub Pages takes it from there.
