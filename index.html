@@ -23,6 +23,8 @@
 <script src="https://cdn.jsdelivr.net/npm/webgl-fluid@0.3"></script>
 <style>
 html,body{margin:0;height:100%;width:100%;background:#0a1622;overflow:hidden;font-family:Inter,system-ui,sans-serif}
+:root{--bearing-font-size:18px;--ink-control-size:14px;--ink-top:19px;--ink-right:24px}
+@media (max-width:600px){:root{--bearing-font-size:24px;--ink-control-size:22px;--ink-top:calc(12px + env(safe-area-inset-top));--ink-right:calc(14px + env(safe-area-inset-right))}}
 @keyframes pingRing{from{transform:translate(-50%,-50%) scale(.4);opacity:.85}to{transform:translate(-50%,-50%) scale(2.9);opacity:0}}
 </style>
 </helmet>
@@ -30,7 +32,7 @@ html,body{margin:0;height:100%;width:100%;background:#0a1622;overflow:hidden;fon
   <canvas ref="{{ fluidCanvas }}" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
   <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(130% 100% at 50% 46%, transparent 55%, rgba(6,12,20,.6) 100%)"></div>
   <div style="position:absolute;left:26px;top:22px;pointer-events:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#e8bf49">POINT.HENDRICK.NET</div>
-  <label style="position:absolute;right:24px;top:19px;display:flex;align-items:center;gap:8px;pointer-events:auto;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#e8bf49;user-select:none">INK<input type="checkbox" checked="{{ inkOn }}" onChange="{{ toggleInk }}" style="width:14px;height:14px;accent-color:#e8bf49;cursor:pointer;margin:0" /></label>
+  <label style="position:absolute;right:var(--ink-right);top:var(--ink-top);min-height:44px;display:flex;align-items:center;gap:8px;pointer-events:auto;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;color:#e8bf49;user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent">INK<input type="checkbox" checked="{{ inkOn }}" onChange="{{ toggleInk }}" onClick="{{ toggleInk }}" style="width:var(--ink-control-size);height:var(--ink-control-size);accent-color:#e8bf49;cursor:pointer;margin:0;flex:0 0 var(--ink-control-size)" /></label>
 
   <div ref="{{ stage }}" style="position:absolute;left:50%;top:50%;width:420px;height:420px;transform:translate(-50%,-50%);transform-origin:center center;pointer-events:none">
     <div ref="{{ tickB }}" style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,.2)">
@@ -42,20 +44,20 @@ html,body{margin:0;height:100%;width:100%;background:#0a1622;overflow:hidden;fon
       <div style="font-family:Fraunces,Georgia,serif;font-weight:560;font-size:27px;line-height:1.08;color:#f4f6f8">Michael<br>Hendrick</div>
     </div>
     <a href="https://www.linkedin.com/in/michaelhendrick/" onMouseEnter="{{ enterN }}" style="position:absolute;left:50%;top:-70px;transform:translateX(-50%);transform-origin:50% 100%;transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:column;align-items:center;gap:9px;text-decoration:none;pointer-events:auto" style-hover="transform:translateX(-50%) scale(1.16)">
-      <span style="font-size:18px;font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75)">Résumé</span>
+      <span style="font-size:var(--bearing-font-size);font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75)">Résumé</span>
       <span style="position:relative;width:13px;height:13px;border-radius:50%;background:#4aa3ff;box-shadow:0 0 18px 5px rgba(74,163,255,.7)"><span ref="{{ pingN }}" style="position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;border:2px solid #4aa3ff;transform:translate(-50%,-50%) scale(.4);opacity:0;pointer-events:none"></span></span>
     </a>
     <a href="https://cv.hendrick.net" onMouseEnter="{{ enterE }}" style="position:absolute;left:calc(100% + 16px);top:50%;transform:translateY(-50%);transform-origin:left center;transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:11px;text-decoration:none;pointer-events:auto" style-hover="transform:translateY(-50%) scale(1.16)">
       <span style="position:relative;width:13px;height:13px;border-radius:50%;background:#e8bf49;box-shadow:0 0 18px 5px rgba(232,191,73,.7)"><span ref="{{ pingE }}" style="position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;border:2px solid #e8bf49;transform:translate(-50%,-50%) scale(.4);opacity:0;pointer-events:none"></span></span>
-      <span style="font-size:18px;font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75);white-space:nowrap;line-height:1.15">Curriculum<br>Vitae</span>
+      <span style="font-size:var(--bearing-font-size);font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75);white-space:nowrap;line-height:1.15">Curriculum<br>Vitae</span>
     </a>
     <a href="https://github.com/CtrlAltMike/point-site" onMouseEnter="{{ enterS }}" style="position:absolute;left:50%;top:calc(100% + 18px);transform:translateX(-50%);transform-origin:50% 0;transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:column-reverse;align-items:center;gap:9px;text-decoration:none;pointer-events:auto" style-hover="transform:translateX(-50%) scale(1.16)">
-      <span style="font-size:18px;font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75);white-space:nowrap">Source Repo</span>
+      <span style="font-size:var(--bearing-font-size);font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75);white-space:nowrap">Source Repo</span>
       <span style="position:relative;width:13px;height:13px;border-radius:50%;background:#bd94ff;box-shadow:0 0 18px 5px rgba(189,148,255,.7)"><span ref="{{ pingS }}" style="position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;border:2px solid #bd94ff;transform:translate(-50%,-50%) scale(.4);opacity:0;pointer-events:none"></span></span>
     </a>
     <a href="https://mike.hendrick.net" onMouseEnter="{{ enterW }}" style="position:absolute;right:calc(100% + 16px);top:50%;transform:translateY(-50%);transform-origin:right center;transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:row-reverse;align-items:center;gap:11px;text-decoration:none;pointer-events:auto" style-hover="transform:translateY(-50%) scale(1.16)">
       <span style="position:relative;width:13px;height:13px;border-radius:50%;background:#35d6a4;box-shadow:0 0 18px 5px rgba(53,214,164,.7)"><span ref="{{ pingW }}" style="position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;border:2px solid #35d6a4;transform:translate(-50%,-50%) scale(.4);opacity:0;pointer-events:none"></span></span>
-      <span style="font-size:18px;font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75);white-space:nowrap">Writing</span>
+      <span style="font-size:var(--bearing-font-size);font-weight:600;color:#f4f9ff;letter-spacing:.005em;text-shadow:0 1px 12px rgba(0,0,0,.75);white-space:nowrap">Writing</span>
     </a>
   </div>
 
